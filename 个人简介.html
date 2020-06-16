@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>个人简介</title>
+	<link type="text/css" href="css/个人简介.css" rel="stylesheet">
+</head>
+<script type="text/javascript">
+	onload=function(){
+		var arr = document.getElementsByClassName("slide");
+		for(var i=0;i<arr.length;i++){
+			arr[i].style.left = i*600+"px";
+		}
+	}
+
+	function LeftMove(){
+		var arr = document.getElementsByClassName("slide");//获取三个子div
+		for(var i=0;i<arr.length;i++){
+			var left = parseFloat(arr[i].style.left);
+			left-=1;
+			var width = 600;//图片的宽度
+			if(left<=-width){
+				left=(arr.length-1)*width;//当图片完全走出显示框，拼接到末尾
+				clearInterval(moveId);
+			}
+			arr[i].style.left = left+"px";
+		}
+	}
+
+	function divInterval(){
+		moveId=setInterval(LeftMove,10);//设置一个20毫秒定时器
+	}
+	
+	
+	timeId=setInterval(divInterval,2000);//设置一个2秒的定时器。
+	
+	function stop(){
+		clearInterval(timeId);
+	}
+	function start(){
+		clearInterval(timeId);
+		timeId=setInterval(divInterval,2000);
+	}
+	
+	//页面失去焦点停止
+	onblur = function(){
+		stop();
+	}
+	//页面获取焦点时开始
+	onfocus = function(){
+		start();
+	}
+</script>
+<body>
+	<!--用一个div来装所有的中心布局，设置统一的宽度-->
+	<div id="all">
+		<!--页眉区——该区域只有一张图片-->
+		<div id="header"></div>
+		<!--导航栏-->
+		<div id="nav">
+			<div class="inner">
+				<ul>
+					<li><a href="index.html">个人主页</a></li>
+					<li class="selected"><a href="个人简介.html">个人简介</a></li>
+					<li><a href="我的朋友.html">我的朋友</a></li>
+					<li><a href="我的爱好.html">我的爱好</a></li>
+					<li><a href="我的相册.html">我的相册</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--end of nav-->
+		<!--内容区-->
+		<div id="container">
+			<div class="cont1">
+				<div class="pics" onmouseover="stop()" onmouseout="start()">
+					<div class="slide"><img src="img/柳州1.jpg"></div>
+					<div class="slide"><img src="img/柳州2.jpg"></div>
+					<div class="slide"><img src="img/柳州3.jpg"></div>
+				</div>
+			</div>
+			<!--文字内容-->
+			<div class="cont2">
+				<div class="cont2-1"><p>哈哈！上面美丽的城市就是我的家乡——广西柳州。是不是很美呀？龙城柳州是国家历史文化名城，是中国最早古人类之一的“柳江人”发祥地，有2100多年建置史，古属百越之地。以柳州为圆心的250千米半径范围内，集中了广西80%以上的4A级旅游风景区。</p>
+				<p>作为一个柳州人，在柳州的美景滋养中长大，在柳州的文化熏陶下成为如今的自己，对这里的一切都充满着爱与感激。</p>
+				<p>柳州最有名的当然还得是近几年火遍全国的螺蛳粉啦！螺蛳粉最近可是卖到断货！网上有一句话说：“所有人都逃不过螺蛳粉的真香定律。”这可不是说说而已的哦！螺蛳粉又酸又辣，还带着特殊的“臭味”，让很多人对此情有独钟，不得一日不吃螺蛳粉。在柳州，大街小巷都布满了螺蛳粉的店铺，每一家都有独特的风味。在柳州嗦粉，除了最基础的配料，你还可以加特制猪脚、鸭脚、豆腐bo、卤鸡蛋、鹌鹑蛋以及火腿等等等等，包你吃到满意！除此之外，螺蛳粉还有创新吃法，炒螺蛳粉、干捞螺蛳粉、三鲜螺蛳粉……话不多说，上图！</p>
+				</div>
+			</div>
+			<!--图片内容-->
+			<div class="cont3">
+				<div class="cont3-1">
+					<div class="cont3-1-1"><img src="img/螺蛳粉1.jpg" width="400px" height="400px"></div>
+					<div class="cont3-1-2"><img src="img/螺蛳粉2.jpg" width="400px" height="400px"></div>
+				</div>
+			</div>
+			<!--文字内容-->
+			<div class="cont4">
+				<div class="cont4-1">
+					<p>说了这么久家乡，现在来说说我。</p>
+					<p>我是信息与安全工程学院计算机系18级学生。在院分团委新闻部担任负责人，同时在南风吟诵社担任宣传部负责人，曾参与组织策划2018年“校园随手拍”比赛、“校园诗词大赛”、“写给自己的情书”等活动。积极参加各类比赛，在2019年中南杯比赛中获得微课教学辅助“汉语言文学组”校级三等奖，2019全国大学生数学建模大赛获得校级优秀团体奖三等奖，参加2019年博文杯并成功立项，参与2020年全国大学生创新创业大赛，并担任主持人，有一定的比赛经验与组织能力，学习成绩良好。除此之外，积极参与党的培训与学习，积极参加“青马班”、“青年学习社”等活动，2020年5月被选为入党积极分子，思想上进，爱国爱党，且积极为同学服务，与同学们关系融洽。</p>
+					<p>还想了解有关更多，就通过下方的方式联系我吧！</p>
+					<br>
+				</div>
+			</div>
+		</div>
+		<!--end of container-->
+		<!--页脚区-->
+		<!--页脚区包含四个部分，分别显示我的邮箱、QQ、微信以及微博账号-->
+		<div id="foot">
+			<div class="f1">
+				<div class="f1-1"><p>-联系我-</p></div>
+			</div>
+			<div class="f2">
+				<div class="f2-1">
+					<div class="f2-1-1"><p>Mail</p></div>
+					<div class="f2-1-2">
+						<div class="pic">
+							<img src="img/mymail.png" width="80px" height="80px">
+						</div>
+						<p>463428820@qq.com</p>
+					</div>
+				</div>
+				<div class="f2-2">
+					<div class="f2-2-1"><p>QQ</p></div>
+					<div class="f2-2-2">
+						<div class="pic">
+							<img src="img/myqq.png" width="80px" height="80px">
+						</div>
+						<p>463428820</p>
+					</div>
+				</div>
+				<div class="f2-3">
+					<div class="f2-3-1"><p>WeChat</p></div>
+					<div class="f2-3-2">
+						<div class="pic">
+							<img src="img/mywechat.png" width="80px" height="80px">
+						</div>
+						<p>chuer_123456</p>
+					</div>
+				</div>
+				<div class="f2-4">
+					<div class="f2-4-1"><p>Web</p></div>
+					<div class="f2-4-2">
+						<div class="pic">
+							<img src="img/Web.png" width="80px" height="80px">
+						</div>
+						<p>@是一颗大石榴呀</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of foot-->
+	</div>
+</body>
+</html>
